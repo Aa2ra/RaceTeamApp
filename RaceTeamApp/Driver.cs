@@ -1,4 +1,4 @@
-﻿public class Driver
+﻿public class Driver : IRaceParticipant
 {
     public string Name { get; set; }
     public int Age { get; set; }
@@ -13,9 +13,13 @@
         Wins = wins;
     }
 
-    public void AddWin() => Wins++;
+    public int GetPerformance()
+    {
+        return SkillLevel;
+    }
 
-    public override string ToString() =>
-        $"{Name}, Ikä: {Age}, Taito: {SkillLevel}, Voitot: {Wins}";
+    public override string ToString()
+    {
+        return $"{Name} skill {SkillLevel}";
+    }
 }
-

@@ -1,21 +1,15 @@
-﻿public class Car
+﻿public class Car : Vehicle
 {
-    public string Model { get; set; }
-    public int HorsePower { get; set; }
-    public int Weight { get; set; }
-    public string Class { get; set; }
+    public string Brand { get; set; }
 
-    public Car(string model, int horsePower, int weight, string carClass)
+    public Car(string brand, string model, int horsePower, int weight)
+        : base(model, horsePower, weight)
     {
-        Model = model;
-        HorsePower = horsePower;
-        Weight = weight;
-        Class = carClass;
+        Brand = brand;
     }
 
-    public double PowerToWeightRatio() =>
-        (double)HorsePower / Weight;
-
-    public override string ToString() =>
-        $"{Model}, {HorsePower}hp, {Weight}kg, Luokka: {Class}";
+    public override string GetInfo()
+    {
+        return $"{Brand} {Model} - {HorsePower}hp";
+    }
 }
